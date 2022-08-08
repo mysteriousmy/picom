@@ -1,5 +1,6 @@
 picom
 =====
+> This is a fork picom amazing animation edition!
 
 __picom__ is a compositor for X, and a [fork of Compton](History.md).
 
@@ -83,21 +84,18 @@ If you have libraries and/or headers installed at non-default location (e.g. und
 
 You can do that by setting the `CPPFLAGS` and `LDFLAGS` environment variables when running `meson`. Like this:
 
-```bash
-$ LDFLAGS="-L/path/to/libraries" CPPFLAGS="-I/path/to/headers" meson --buildtype=release . build
-
 ```
+cd picom
+git checkout implement-window-animations
 
-As an example, on FreeBSD, you might have to run meson with:
-```bash
-$ LDFLAGS="-L/usr/local/lib" CPPFLAGS="-I/usr/local/include" meson --buildtype=release . build
-$ ninja -C build
+rm -rf build
+LDFLAGS="-L/usr/local/lib" CPPFLAGS="-I/usr/local/include" meson --buildtype=release . build
+ninja -C build
+sudo ninja -C build install
 ```
-
-### To install
-
-``` bash
-$ ninja -C build install
+Launcher:
+```
+picom --experimental-backends --config ~/scripts/config/picom.conf
 ```
 
 Default install prefix is `/usr/local`, you can change it with `meson configure -Dprefix=<path> build`
