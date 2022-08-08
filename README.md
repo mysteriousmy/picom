@@ -72,16 +72,6 @@ To build the documents, you need `asciidoc`
 
 ### To build
 
-```bash
-$ git submodule update --init --recursive
-$ meson --buildtype=release . build
-$ ninja -C build
-```
-
-Built binary can be found in `build/src`
-
-If you have libraries and/or headers installed at non-default location (e.g. under `/usr/local/`), you might need to tell meson about them, since meson doesn't look for dependencies there by default.
-
 You can do that by setting the `CPPFLAGS` and `LDFLAGS` environment variables when running `meson`. Like this:
 
 ```
